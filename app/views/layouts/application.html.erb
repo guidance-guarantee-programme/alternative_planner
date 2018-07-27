@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Welsh Planner</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<% content_for :head do %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+<% end %>
 
-    <%= stylesheet_link_tag    'application' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+<%= content_for :app_title do %>
+  Welsh Planner
+<% end %>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+<% content_for :body_end do %>
+  <%= javascript_include_tag 'application' %>
+<% end %>
+
+<%= render template: 'layouts/govuk_admin_template' %>
