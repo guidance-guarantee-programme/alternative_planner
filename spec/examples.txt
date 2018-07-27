@@ -1,0 +1,4 @@
+example_id                                 | status | run_time        |
+------------------------------------------ | ------ | --------------- |
+./spec/models/location_spec.rb[1:1]        | passed | 0.01329 seconds |
+./spec/requests/locations_api_spec.rb[1:1] | passed | 0.20404 seconds |

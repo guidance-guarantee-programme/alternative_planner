@@ -1,0 +1,16 @@
+sudo: false
+language: ruby
+cache:
+  bundler: true
+  yarn: true
+  directories:
+  - tmp/cache/assets/test
+before_install:
+- gem update --system
+- gem install bundler -v=1.16.2
+before_script:
+- yarn install
+- bundle exec rake db:create db:migrate RAILS_ENV=test
+notifications:
+  slack:
+    secure: RA2pCeHEcrbs23kaunDufBKOnViaG2NMnF4DKImw7I8Mqn84BBJCHDgjKEFjpFZJu9xmMKNu18L694JmNawTE6aaKLMcKMuQYMDOr4cXPgpP3+jaHtHNab3YchODwoneeYNW7OfZEYLLlGTiivDlGlV8T4TT4XnC1bao7C6r0Mx4ARYS8ntf1mteb81x8L3w2IGqfsACOoW3KiEJLdGf9XcEcB1zPD3muzjVsgJncQ1z6nFXgxr1T6YsNwfSEZe9S9YjE0I0WBz9ynNkum4X9mIZ8loZkuM5fejrWIC06idhAd/UL1l05rvRLyN6LcHAYiAIrPTSSKNbp5t+n21yZyHhm8Yrn1QG9g8mnesPmqlhMQ1X1cntjHYqThnZy1s1T8H3e9RpnuoYNnwjq5W3XMUVb2Jsz+NXsDF/L+I8jDG26GxF72DD1+jXYUL5bnk2xwSL7IkEGJSk9i7zPZuOs95yMdlgOWJPDO+WEFtw6fTJ59FXA5n40RMrua1O0jtyq0wPlfoQ1wG3dj5WoVPmioO9W+Qz49cDEbjs5eam4aYYKG2PxqVEsEFDFddOIf+67dWhnHGOtYz3Zb0hSDUmJdt1icSAPsQmQUdw+LIUV8zkgUWb56IXRkmRlIZYhXEQREYpdDBVMHBRFFNkQKQMJRbAFtasVjYfsUbydsxHGbU=
