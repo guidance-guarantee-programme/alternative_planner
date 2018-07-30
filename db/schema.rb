@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_26_151736) do
+ActiveRecord::Schema.define(version: 2018_07_30_121056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "booking_requests", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "phone", null: false
+    t.string "memorable_word", null: false
+    t.string "gdpr_consent", default: "", null: false
+    t.string "additional_info", default: "", null: false
+    t.date "date_of_birth", null: false
+    t.boolean "defined_contribution_pot_confirmed", null: false
+    t.boolean "accessibility_needs", null: false
+    t.integer "where_you_heard", null: false
+    t.bigint "location_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_booking_requests_on_location_id"
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -21,4 +39,5 @@ ActiveRecord::Schema.define(version: 2018_07_26_151736) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "booking_requests", "locations"
 end
