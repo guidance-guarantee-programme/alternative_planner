@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'POST /api/v1/booking_requests.json' do
-  scenario 'Creating a valid phone booking request' do
-    payload = {
+  let(:payload) do
+    {
       'first_name' => 'George',
       'last_name' => 'Smithson',
       'email' => 'george@example.com',
@@ -15,7 +15,19 @@ RSpec.describe 'POST /api/v1/booking_requests.json' do
       'where_you_heard' => '1', # An employer
       'gdpr_consent' => 'yes'
     }
+  end
 
+  scenario 'Creating a valid face-to-face booking request' do
+    payload_with_location = payload.merge('location_id' => create(:location).to_param)
+
+    post api_v1_booking_requests_path, params: payload_with_location, as: :json
+
+    expect(response).to be_created
+
+    expect(BookingRequest.last).to be_face_to_face
+  end
+
+  scenario 'Creating a valid phone booking request' do
     post api_v1_booking_requests_path, params: payload, as: :json
 
     expect(response).to be_created
