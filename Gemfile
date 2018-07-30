@@ -6,6 +6,7 @@ ruby IO.read('.ruby-version').strip
 gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bugsnag'
+gem 'email_validator'
 gem 'foreman'
 gem 'govuk_admin_template'
 gem 'pg', '>= 0.18', '< 2.0'
