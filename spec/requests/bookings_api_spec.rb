@@ -17,6 +17,14 @@ RSpec.describe 'POST /api/v1/booking_requests.json' do
     }
   end
 
+  scenario 'Attempting to create an invalid booking request' do
+    payload_without_name = payload.merge('first_name' => '')
+
+    post api_v1_booking_requests_path, params: payload_without_name, as: :json
+
+    expect(response).to be_unprocessable
+  end
+
   scenario 'Creating a valid face-to-face booking request' do
     payload_with_location = payload.merge('location_id' => create(:location).to_param)
 

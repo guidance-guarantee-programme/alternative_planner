@@ -4,9 +4,13 @@ module Api
       wrap_parameters false
 
       def create
-        BookingRequest.create!(booking_request_params)
+        @booking_request = BookingRequest.new(booking_request_params)
 
-        head :created
+        if @booking_request.save
+          head :created
+        else
+          head :unprocessable_entity
+        end
       end
 
       private
