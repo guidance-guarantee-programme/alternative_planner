@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_121056) do
+ActiveRecord::Schema.define(version: 2018_07_31_164733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,11 +30,25 @@ ActiveRecord::Schema.define(version: 2018_07_30_121056) do
     t.bigint "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "processed_at"
     t.index ["location_id"], name: "index_booking_requests_on_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
     t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "uid"
+    t.string "organisation_slug"
+    t.string "organisation_content_id"
+    t.string "permissions"
+    t.boolean "remotely_signed_out", default: false
+    t.boolean "disabled", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

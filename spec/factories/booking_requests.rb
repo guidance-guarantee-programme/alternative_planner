@@ -11,5 +11,9 @@ FactoryBot.define do
     additional_info ''
     where_you_heard 1 # An employer
     gdpr_consent 'yes'
+
+    trait :face_to_face do
+      location
+    end
   end
 end

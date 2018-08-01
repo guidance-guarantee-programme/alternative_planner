@@ -6,4 +6,8 @@ Rails.application.routes.draw do
       resources :booking_requests, only: :create
     end
   end
+
+  resources :booking_requests, only: %i[index show]
+
+  root 'booking_requests#index'
 end
