@@ -30,6 +30,8 @@ RSpec.describe 'POST /api/v1/booking_requests.json' do
 
     post api_v1_booking_requests_path, params: payload_with_location, as: :json
 
+    assert_enqueued_jobs(1, only: GuiderNotificationsJob)
+
     expect(response).to be_created
 
     expect(BookingRequest.last).to be_face_to_face
@@ -37,6 +39,8 @@ RSpec.describe 'POST /api/v1/booking_requests.json' do
 
   scenario 'Creating a valid phone booking request' do
     post api_v1_booking_requests_path, params: payload, as: :json
+
+    assert_enqueued_jobs(1, only: GuiderNotificationsJob)
 
     expect(response).to be_created
 
