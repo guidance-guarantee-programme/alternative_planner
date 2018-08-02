@@ -10,10 +10,11 @@ RSpec.feature 'Guider views booking requests' do
   end
 
   scenario 'Viewing the booking requests index' do
-    given_a_guider_is_logged_in
-    and_several_booking_requests_exist
-    when_the_guider_views_the_booking_requests
-    then_the_booking_requests_are_displayed
+    given_the_user_identifies_as(:guider) do
+      and_several_booking_requests_exist
+      when_the_guider_views_the_booking_requests
+      then_the_booking_requests_are_displayed
+    end
   end
 
   def given_a_guider_is_logged_in
@@ -39,14 +40,5 @@ RSpec.feature 'Guider views booking requests' do
     expect(@first.full_name).to have_text('Daisy Smith')
     expect(@first.booking_type).to have_text('Face-to-face')
     expect(@first.processed).to have_text('No')
-  end
-
-  def with_real_sso
-    sso_env = ENV['GDS_SSO_MOCK_INVALID']
-    ENV['GDS_SSO_MOCK_INVALID'] = '1'
-
-    yield
-  ensure
-    ENV['GDS_SSO_MOCK_INVALID'] = sso_env
   end
 end
