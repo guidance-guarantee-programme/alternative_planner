@@ -17,6 +17,7 @@ gem 'plek'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.0'
 gem 'sassc-rails'
+gem 'sidekiq'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do

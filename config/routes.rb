@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web, at: '/sidekiq', constraints: AuthenticatedUser.new
+
   namespace :api, constraints: { format: :json } do
     namespace :v1 do
       resources :locations, only: :index

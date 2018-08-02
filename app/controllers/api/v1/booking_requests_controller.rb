@@ -7,6 +7,7 @@ module Api
         @booking_request = BookingRequest.new(booking_request_params)
 
         if @booking_request.save
+          send_notifications(@booking_request)
           head :created
         else
           head :unprocessable_entity
@@ -14,6 +15,10 @@ module Api
       end
 
       private
+
+      def send_notifications(booking_request)
+        GuiderNotificationsJob.perform_later(booking_request)
+      end
 
       def booking_request_params # rubocop:disable MethodLength
         params.permit(
