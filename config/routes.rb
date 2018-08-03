@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  mount GovukAdminTemplate::Engine, at: '/style-guide'
   mount Sidekiq::Web, at: '/sidekiq', constraints: AuthenticatedUser.new
 
   namespace :api, constraints: { format: :json } do

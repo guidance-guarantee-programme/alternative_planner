@@ -1,0 +1,95 @@
+<% content_for(:page_title, "Booking request for #{@booking_request.full_name}") %>
+
+<div class="page-header">
+  <ol class="breadcrumb">
+    <li><a href="<%= root_path %>">Welsh appointment planner</a></li>
+    <li><a href="<%= root_path %>">Booking requests</a></li>
+    <li class="active">Booking request for <%= @booking_request.full_name %></li>
+  </ol>
+
+  <h1>Booking request for <%= @booking_request.full_name %></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-4 well">
+    <h2 class="h3">Type of booking request</h2>
+    <p class="lead">
+      <strong class="t-booking-type"><%= @booking_request.booking_type %></strong>
+    </p>
+
+    <% if @booking_request.face_to_face? %>
+    <hr>
+    <h2 class="h3">Requested location</h3>
+    <p class="lead">
+      <strong class="t-location"><%= @booking_request.location_name %></strong>
+    </p>
+    <% end %>
+
+    <hr>
+    <h2 class="h3">Customer research consent</h3>
+    <p class="lead">
+      <strong class="t-gdpr-consent"><%= @booking_request.consent %></strong>
+    </p>
+
+    <hr>
+    <h2 class="h3">Processed?</h3>
+    <p class="lead">
+      <strong class="t-processed"><%= @booking_request.processed %></strong>
+    </p>
+  </div>
+
+  <%= form_for @booking_request do |f| %>
+  <div class="col-md-8 l-appointment-details">
+    <div class="well">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="h3">Customer details</h2>
+          <div class="form-group">
+            <%= f.label :full_name %>
+            <%= f.text_field :full_name, class: 'form-control t-full-name', readonly: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: 'form-control t-email', readonly: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :phone %>
+            <%= f.text_field :phone, class: 'form-control t-phone', readonly: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :memorable_word %>
+            <%= f.text_field :memorable_word, class: 'form-control t-memorable-word', readonly: true %>
+          </div>
+          <%= render partial: 'shared/date_of_birth_form_field', locals: { form: f } %>
+        </div>
+        <div class="col-md-6">
+          <h2 class="h3">Appointment details</h2>
+
+          <div class="form-group">
+            <%= f.label :additional_info %>
+            <%= f.text_area :additional_info, class: 'form-control t-additional-info', rows: 5, maxlength: 500, readonly: true %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :accessibility_needs, class: 'checkbox-inline' do %>
+              <%= f.check_box :accessibility_needs, class: 't-accessibility-needs' %> <b>Accessibility needs?</b>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <p><b>Defined contribution pot confirmed?</b></p>
+            <%= f.label :defined_contribution_pot_confirmed, value: true, class: 'radio-inline' do %>
+              <%= f.radio_button :defined_contribution_pot_confirmed, true, class: 't-defined-contribution-pot-confirmed-yes' %>
+              Yes
+            <% end %>
+
+            <%= f.label :defined_contribution_pot_confirmed, value: false, class: 'radio-inline' do %>
+              <%= f.radio_button :defined_contribution_pot_confirmed, false, class: 't-defined-contribution-pot-confirmed-dont-know' %>
+              Don’t know
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
