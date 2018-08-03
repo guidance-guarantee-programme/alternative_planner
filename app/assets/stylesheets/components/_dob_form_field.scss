@@ -1,0 +1,28 @@
+.form-dob {
+  .form-group {
+    display: inline;
+    margin-bottom: 0;
+  }
+
+  .form-dob-label {
+    margin-bottom: 10px;
+  }
+}
+
+.form-dob__inputs-container {
+  float: left;
+}
+
+.form-dob__input {
+  width: 64px;
+}
+
+.form-dob__input--year {
+  width: 90px;
+}
+
+.form-dob__age {
+  display: inline-block;
+  clear: left;
+  margin: 25px 0 0 5px;
+}

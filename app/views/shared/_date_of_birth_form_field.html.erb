@@ -1,0 +1,53 @@
+<%
+  form_element_day_id = "#{form.object_name}_date_of_birth_3i"
+  form_element_month_id = "#{form.object_name}_date_of_birth_2i"
+  form_element_year_id = "#{form.object_name}_date_of_birth_1i"
+%>
+
+<div class="form-dob clearfix">
+  <p><b>Date of birth</b></p>
+  <div class="form-dob__inputs-container">
+    <label for="<%= form_element_day_id %>">
+      <span class="sr-only">Date of birth</span>
+      <%=
+        form.text_field(
+          'date_of_birth(3i)',
+          id: form_element_day_id,
+          use_label: false,
+          value: form.object.date_of_birth.try(:day),
+          placeholder: 'DD',
+          class: 'form-dob__input js-dob-day t-date-of-birth-day form-control',
+          readonly: true
+        )
+      %>
+    </label>
+    <label for="<%= form_element_month_id %>">
+      <span class="sr-only">Date of birth</span>
+      <%=
+        form.text_field(
+          'date_of_birth(2i)',
+          id: form_element_month_id,
+          use_label: false,
+          value: form.object.date_of_birth.try(:month),
+          placeholder: 'MM',
+          class: 'form-dob__input js-dob-month t-date-of-birth-month form-control',
+          readonly: true
+        )
+      %>
+    </label>
+    <label for="<%= form_element_year_id %>">
+      <span class="sr-only">Date of birth</span>
+      <%=
+        form.text_field(
+          'date_of_birth(1i)',
+          id: form_element_year_id,
+          use_label: false,
+          value: form.object.date_of_birth.try(:year),
+          placeholder: 'YYYY',
+          class: 'form-dob__input form-dob__input--year js-dob-year t-date-of-birth-year form-control',
+          readonly: true
+        )
+      %>
+    </label>
+  </div>
+</div>
