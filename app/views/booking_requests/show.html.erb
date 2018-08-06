@@ -7,7 +7,20 @@
     <li class="active">Booking request for <%= @booking_request.full_name %></li>
   </ol>
 
-  <h1>Booking request for <%= @booking_request.full_name %></h1>
+  <div class="row">
+    <div class="col-md-7">
+      <h1>Booking request for <%= @booking_request.full_name %></h1>
+    </div>
+
+    <div class="col-md-5 action-buttons">
+      <% unless @booking_request.processed_at? %>
+        <%= link_to booking_request_process_path(@booking_request), method: :post, title: 'Mark as processed', class: 'btn btn-info t-process' do %>
+          <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+          <span>Mark as processed</span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="row">

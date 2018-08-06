@@ -15,4 +15,8 @@ class BookingRequest < ApplicationRecord
   def face_to_face?
     location_id.present?
   end
+
+  def process!
+    touch(:processed_at) unless processed_at? # rubocop:disable SkipsModelValidations
+  end
 end
