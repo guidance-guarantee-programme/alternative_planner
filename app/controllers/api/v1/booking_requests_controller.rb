@@ -3,6 +3,8 @@ module Api
     class BookingRequestsController < ActionController::Base
       wrap_parameters false
 
+      skip_before_action :verify_authenticity_token
+
       def create
         @booking_request = BookingRequest.new(booking_request_params)
 
