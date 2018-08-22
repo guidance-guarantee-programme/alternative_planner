@@ -8,6 +8,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-kaminari-views'
 gem 'bugsnag'
 gem 'email_validator'
+gem 'faraday'
+gem 'faraday-conductivity'
+gem 'faraday_middleware'
 gem 'foreman'
 gem 'gds-sso'
 gem 'govuk_admin_template'
@@ -38,6 +41,7 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'site_prism'
+  gem 'webmock'
 end
 
 group :staging, :production do

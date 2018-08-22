@@ -20,6 +20,7 @@ module Api
 
       def send_notifications(booking_request)
         GuiderNotificationsJob.perform_later(booking_request)
+        SlackPingerJob.perform_later(booking_request)
         CustomerMailer.confirmation(booking_request).deliver_later
       end
 
