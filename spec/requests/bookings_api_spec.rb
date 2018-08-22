@@ -30,7 +30,7 @@ RSpec.describe 'POST /api/v1/booking_requests.json' do
 
     post api_v1_booking_requests_path, params: payload_with_location, as: :json
 
-    assert_enqueued_jobs(1, only: GuiderNotificationsJob)
+    assert_enqueued_jobs(2, only: [GuiderNotificationsJob, SlackPingerJob])
     assert_enqueued_emails(1)
 
     expect(response).to be_created
@@ -41,7 +41,7 @@ RSpec.describe 'POST /api/v1/booking_requests.json' do
   scenario 'Creating a valid phone booking request' do
     post api_v1_booking_requests_path, params: payload, as: :json
 
-    assert_enqueued_jobs(1, only: GuiderNotificationsJob)
+    assert_enqueued_jobs(2, only: [GuiderNotificationsJob, SlackPingerJob])
     assert_enqueued_emails(1)
 
     expect(response).to be_created
