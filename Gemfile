@@ -43,7 +43,3 @@ group :test do
   gem 'site_prism'
   gem 'webmock'
 end
-
-group :staging, :production do
-  gem 'rails_12factor'
-end
