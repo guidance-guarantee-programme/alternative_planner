@@ -1,4 +1,8 @@
 class ProcessesController < ApplicationController
+  before_action do
+    authorise_user!(User::WELSH_PERMISSION)
+  end
+
   def create
     @booking_request = BookingRequest.find(params[:booking_request_id])
     @booking_request.process!

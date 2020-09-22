@@ -3,6 +3,6 @@ FactoryBot.define do
     uid { SecureRandom.uuid }
     name { 'Rick Sanchez' }
     email { 'rick@example.com' }
-    permissions { %w[signin] }
+    permissions { %w[signin welsh] }
   end
 end
