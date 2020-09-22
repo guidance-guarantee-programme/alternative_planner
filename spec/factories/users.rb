@@ -4,5 +4,9 @@ FactoryBot.define do
     name { 'Rick Sanchez' }
     email { 'rick@example.com' }
     permissions { %w[signin welsh] }
+
+    trait :bsl do
+      permissions { %w[signin bsl] }
+    end
   end
 end
