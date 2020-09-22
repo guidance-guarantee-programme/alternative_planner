@@ -36,10 +36,10 @@ group :development do
 end
 
 group :test do
-  gem 'chromedriver-helper'
   gem 'database_rewinder'
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'site_prism'
+  gem 'webdrivers', require: false
   gem 'webmock'
 end
