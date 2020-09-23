@@ -4,11 +4,24 @@
 <% end %>
 
 <%= content_for :app_title do %>
-  Welsh Planner
+  Alternative Planner
 <% end %>
 
 <% content_for :body_end do %>
   <%= javascript_include_tag 'application' %>
+<% end %>
+
+<%= content_for :navbar_items do %>
+  <% if current_user.welsh? %>
+  <li>
+    <%= link_to 'Welsh booking requests', booking_requests_path %>
+  </li>
+  <% end %>
+  <% if current_user.bsl? %>
+  <li>
+    <%= link_to 'BSL booking requests', bsl_booking_requests_path %>
+  </li>
+  <% end %>
 <% end %>
 
 <%= render template: 'layouts/govuk_admin_template' %>

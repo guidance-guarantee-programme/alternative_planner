@@ -21,5 +21,5 @@ Rails.application.routes.draw do
     resource :process, only: :create
   end
 
-  root 'booking_requests#index'
+  root 'home#index'
 end
