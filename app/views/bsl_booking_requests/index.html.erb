@@ -1,11 +1,11 @@
-<% content_for(:page_title, 'Booking Requests') %>
+<% content_for(:page_title, 'BSL Booking Requests') %>
 <div class="page-header">
   <ol class="breadcrumb">
     <li><%= link_to 'Alternative planner', root_path %></li>
-    <li class="active">Welsh booking requests</li>
+    <li class="active">BSL booking requests</li>
   </ol>
 
-  <h1>Welsh booking requests</h1>
+  <h1>BSL booking requests</h1>
 </div>
 
 <div class="row">
@@ -16,21 +16,19 @@
       <%= paginate @booking_requests %>
 
       <table class="table table-bordered centred-table table-striped">
-        <caption><span class="sr-only">Booking Requests</span></caption>
+        <caption><span class="sr-only">BSL Booking Requests</span></caption>
         <thead>
           <tr class="table-header">
             <th>Reference</th>
             <th>Requested</th>
             <th>Customer name</th>
-            <th>Appointment type</th>
-            <th>Location</th>
             <th>Processed</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <% @booking_requests.each do |booking_request| %>
-            <% booking_request = BookingRequestDecorator.new(booking_request) %>
+            <% booking_request = BslBookingRequestDecorator.new(booking_request) %>
             <tr class="t-booking-request">
               <td>
                 <%= booking_request.id %>
@@ -40,12 +38,6 @@
               </td>
               <td class="t-full-name">
                 <%= booking_request.full_name %>
-              </td>
-              <td class="t-booking-type">
-                <%= booking_request.booking_type %>
-              </td>
-              <td class="t-location">
-                <%= booking_request.location_name %>
               </td>
               <td class="t-processed">
                 <%= booking_request.processed %>

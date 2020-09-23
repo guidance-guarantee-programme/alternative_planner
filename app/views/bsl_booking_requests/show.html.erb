@@ -1,20 +1,19 @@
-<% content_for(:page_title, "Booking request for #{@booking_request.full_name}") %>
+<% content_for(:page_title, "BSL booking request for #{@booking_request.full_name}") %>
 
 <div class="page-header">
   <ol class="breadcrumb">
-    <li><a href="<%= root_path %>">Alternative planner</a></li>
-    <li><a href="<%= root_path %>">Welsh booking requests</a></li>
-    <li class="active">Welsh booking request for <%= @booking_request.full_name %></li>
+    <li><a href="<%= bsl_booking_requests_path %>">Alternative planner</a></li>
+    <li class="active">BSL booking request for <%= @booking_request.full_name %></li>
   </ol>
 
   <div class="row">
     <div class="col-md-7">
-      <h1>Welsh booking request for <%= @booking_request.full_name %></h1>
+      <h1>BSL booking request for <%= @booking_request.full_name %></h1>
     </div>
 
     <div class="col-md-5 action-buttons">
       <% unless @booking_request.processed_at? %>
-        <%= link_to booking_request_process_path(@booking_request), method: :post, title: 'Mark as processed', class: 'btn btn-info t-process' do %>
+        <%= link_to bsl_booking_request_process_path(@booking_request), method: :post, title: 'Mark as processed', class: 'btn btn-info t-process' do %>
           <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
           <span>Mark as processed</span>
         <% end %>
@@ -25,20 +24,6 @@
 
 <div class="row">
   <div class="col-md-4 well">
-    <h2 class="h3">Type of booking request</h2>
-    <p class="lead">
-      <strong class="t-booking-type"><%= @booking_request.booking_type %></strong>
-    </p>
-
-    <% if @booking_request.face_to_face? %>
-    <hr>
-    <h2 class="h3">Requested location</h3>
-    <p class="lead">
-      <strong class="t-location"><%= @booking_request.location_name %></strong>
-    </p>
-    <% end %>
-
-    <hr>
     <h2 class="h3">Customer research consent</h3>
     <p class="lead">
       <strong class="t-gdpr-consent"><%= @booking_request.consent %></strong>

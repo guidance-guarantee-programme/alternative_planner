@@ -13,4 +13,8 @@ class BslBookingRequest < ApplicationRecord
   def booking_type
     'BSL'
   end
+
+  def process!
+    touch(:processed_at) unless processed_at? # rubocop:disable SkipsModelValidations
+  end
 end

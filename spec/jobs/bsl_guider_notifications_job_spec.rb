@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe BslGuiderNotificationsJob, type: :job do
   it 'enqueues emails for each enabled BSL guider' do
-    bsl_guider      = create(:guider, :bsl)
+    bsl_guider      = create(:bsl_guider)
     booking_request = build(:bsl_booking_request)
 
     create(:guider) # Welsh guider account, not notified

@@ -18,7 +18,7 @@ RSpec.describe GuiderMailer do
   context 'for a BSL booking request' do
     it 'is rendered correctly' do
       booking_request = create(:bsl_booking_request)
-      guider = create(:guider, :bsl)
+      guider = create(:bsl_guider)
 
       email = described_class.booking_request(guider, booking_request)
 
