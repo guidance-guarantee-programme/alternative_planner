@@ -3,6 +3,10 @@ FactoryBot.define do
     uid { SecureRandom.uuid }
     name { 'Rick Sanchez' }
     email { 'rick@example.com' }
-    permissions { %w[signin] }
+    permissions { %w[signin welsh] }
+
+    factory :bsl_guider do
+      permissions { %w[signin bsl] }
+    end
   end
 end

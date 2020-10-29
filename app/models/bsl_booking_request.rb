@@ -1,6 +1,4 @@
-class BookingRequest < ApplicationRecord
-  belongs_to :location, optional: true
-
+class BslBookingRequest < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, email: true
@@ -12,15 +10,11 @@ class BookingRequest < ApplicationRecord
   validates :where_you_heard, presence: true
   validates :gdpr_consent, inclusion: { in: ['yes', 'no', ''] }
 
-  def face_to_face?
-    location_id.present?
+  def booking_type
+    'BSL'
   end
 
   def process!
     touch(:processed_at) unless processed_at? # rubocop:disable SkipsModelValidations
-  end
-
-  def booking_type
-    'Welsh Language'
   end
 end
