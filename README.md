@@ -1,4 +1,5 @@
-# Welsh Planner
+# Alternative Planner
 
-The Welsh planner, for Welsh-language booking requests.
+The alternative planner, for Welsh-language booking requests and BSL video
+appointments.
 
