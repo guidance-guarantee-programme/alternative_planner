@@ -19,5 +19,10 @@ module Pages
     element :processed, '.t-processed'
 
     element :process, '.t-process'
+
+    element :message, '.t-message'
+    element :add_note, '.t-add-note'
+
+    elements :notes, '.t-note'
   end
 end

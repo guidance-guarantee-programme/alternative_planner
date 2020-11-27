@@ -1,4 +1,6 @@
 class BslBookingRequest < ApplicationRecord
+  has_many :notes, as: :notable, dependent: :destroy
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, email: true

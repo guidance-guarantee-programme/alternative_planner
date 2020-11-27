@@ -1,0 +1,4 @@
+<li class="activity-feed__item t-note" id="activity-<%= note.id %>">
+  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+  <b><%= note.user.name %></b> said <em><%= note.message %></em> <span class="activity-feed__date"><%= timestamp(note.created_at) %></span>
+</li>

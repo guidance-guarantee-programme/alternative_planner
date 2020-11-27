@@ -15,10 +15,12 @@ Rails.application.routes.draw do
 
   resources :booking_requests, only: %i[index show] do
     resource :process, only: :create
+    resources :notes, only: :create
   end
 
   resources :bsl_booking_requests, only: %i[index show] do
     resource :process, only: :create
+    resources :notes, only: :create
   end
 
   root 'home#index'

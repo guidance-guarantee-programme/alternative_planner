@@ -1,5 +1,6 @@
 class BookingRequest < ApplicationRecord
   belongs_to :location, optional: true
+  has_many :notes, as: :notable, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true

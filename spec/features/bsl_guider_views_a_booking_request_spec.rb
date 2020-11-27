@@ -6,6 +6,8 @@ RSpec.feature 'BSL guider views a booking request' do
       and_a_bsl_booking_exists
       when_the_guider_views_the_booking
       then_the_booking_is_displayed
+      when_the_guider_submits_a_note
+      then_the_note_is_displayed
     end
   end
 
@@ -32,5 +34,15 @@ RSpec.feature 'BSL guider views a booking request' do
     expect(@page.accessibility_needs).not_to be_checked
     expect(@page.additional_info).to have_value('')
     expect(@page.gdpr_consent).to have_text('No')
+  end
+
+  def when_the_guider_submits_a_note
+    @page.message.set('Call the customer')
+    @page.add_note.click
+  end
+
+  def then_the_note_is_displayed
+    expect(@page).to have_notes(count: 1)
+    expect(@page.notes.first).to have_text('Call the customer')
   end
 end
