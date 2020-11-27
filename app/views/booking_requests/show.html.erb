@@ -23,39 +23,68 @@
   </div>
 </div>
 
+<div class="row t-activity-feed">
+  <div class="col-md-12 border-bottom">
+    <div class="activity-feed">
+      <div class="well js-message-form">
+        <%= form_for [@booking_request, @note] do |f| %>
+          <div class="input-group activity-feed__input">
+            <label for="message_activity_message"><span class="sr-only">Activity message</span></label>
+            <%= f.text_field :message, placeholder: 'Add a note to keep others in the loop', class: 'form-control t-message' %>
+            <span class="input-group-btn">
+              <%= f.button class: 'btn btn-primary btn-block t-add-note activity-feed__button', data: { disable_with: 'Adding note...' } do %>
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Add note
+              <% end %>
+            </span>
+          </div>
+        <% end %>
+      </div>
+
+      <ol class="list-group activity-feed__list t-notes">
+        <%= render(@booking_request.notes.order(created_at: :desc)) %>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<hr>
+
 <div class="row">
-  <div class="col-md-4 well">
-    <h2 class="h3">Type of booking request</h2>
-    <p class="lead">
-      <strong class="t-booking-type"><%= @booking_request.booking_type %></strong>
-    </p>
+  <div class="col-md-4">
+    <div class="well">
+      <h2 class="h3">Type of booking request</h2>
+      <p class="lead">
+        <strong class="t-booking-type"><%= @booking_request.booking_type %></strong>
+      </p>
 
-    <% if @booking_request.face_to_face? %>
-    <hr>
-    <h2 class="h3">Requested location</h3>
-    <p class="lead">
-      <strong class="t-location"><%= @booking_request.location_name %></strong>
-    </p>
-    <% end %>
+      <% if @booking_request.face_to_face? %>
+      <hr>
+      <h2 class="h3">Requested location</h3>
+      <p class="lead">
+        <strong class="t-location"><%= @booking_request.location_name %></strong>
+      </p>
+      <% end %>
 
-    <hr>
-    <h2 class="h3">Customer research consent</h3>
-    <p class="lead">
-      <strong class="t-gdpr-consent"><%= @booking_request.consent %></strong>
-    </p>
+      <hr>
+      <h2 class="h3">Customer research consent</h3>
+      <p class="lead">
+        <strong class="t-gdpr-consent"><%= @booking_request.consent %></strong>
+      </p>
 
-    <hr>
-    <h2 class="h3">Processed?</h3>
-    <p class="lead">
-      <strong class="t-processed"><%= @booking_request.processed %></strong>
-    </p>
+      <hr>
+      <h2 class="h3">Processed?</h3>
+      <p class="lead">
+        <strong class="t-processed"><%= @booking_request.processed %></strong>
+      </p>
+    </div>
   </div>
 
-  <%= form_for @booking_request do |f| %>
   <div class="col-md-8 l-appointment-details">
     <div class="well">
       <div class="row">
         <div class="col-md-6">
+          <%= form_for @booking_request do |f| %>
           <h2 class="h3">Customer details</h2>
           <div class="form-group">
             <%= f.label :full_name %>
@@ -101,8 +130,8 @@
               Don’t know
             <% end %>
           </div>
+        <% end %>
       </div>
     </div>
   </div>
-  <% end %>
 </div>

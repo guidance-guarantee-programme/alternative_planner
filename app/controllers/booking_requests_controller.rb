@@ -11,5 +11,7 @@ class BookingRequestsController < ApplicationController
     @booking_request = BookingRequestDecorator.new(
       BookingRequest.find(params[:id])
     )
+
+    @note = Note.new(notable: @booking_request.object, user: current_user)
   end
 end
