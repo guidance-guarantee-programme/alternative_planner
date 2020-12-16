@@ -13,7 +13,12 @@ RSpec.describe 'POST /api/v1/bsl_booking_requests.json' do
       'accessibility_needs' => false,
       'additional_info' => '',
       'where_you_heard' => 1, # An employer
-      'gdpr_consent' => 'yes'
+      'gdpr_consent' => 'yes',
+      'support' => 'yes',
+      'support_name' => 'Dave Jones',
+      'support_relationship' => 'Husband',
+      'support_email' => 'dave@example.com',
+      'support_phone' => '07717 383 488'
     }
   end
 
