@@ -21,6 +21,11 @@ module Pages
     element :message, '.t-message'
     element :add_note, '.t-add-note'
 
+    element :support_name, '.t-support-name'
+    element :support_relationship, '.t-support-relationship'
+    element :support_email, '.t-support-email'
+    element :support_phone, '.t-support-phone'
+
     elements :notes, '.t-note'
   end
 end

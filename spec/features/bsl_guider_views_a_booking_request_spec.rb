@@ -11,6 +11,23 @@ RSpec.feature 'BSL guider views a booking request' do
     end
   end
 
+  scenario 'Viewing a BSL booking with a nominated support person' do
+    given_the_user_identifies_as(:bsl_guider) do
+      and_a_bsl_booking_exists_with_nominated_support
+      when_the_guider_views_the_booking
+      then_the_booking_is_displayed_with_nominated_support
+    end
+  end
+
+  def and_a_bsl_booking_exists_with_nominated_support
+    @booking = create(:bsl_booking_request, :nominated_support)
+  end
+
+  def then_the_booking_is_displayed_with_nominated_support
+    expect(@page).to be_displayed
+    expect(@page).to have_support_name
+  end
+
   def and_a_bsl_booking_exists
     @booking = create(:bsl_booking_request)
   end
@@ -34,6 +51,7 @@ RSpec.feature 'BSL guider views a booking request' do
     expect(@page.accessibility_needs).not_to be_checked
     expect(@page.additional_info).to have_value('')
     expect(@page.gdpr_consent).to have_text('No')
+    expect(@page).to have_no_support_name
   end
 
   def when_the_guider_submits_a_note

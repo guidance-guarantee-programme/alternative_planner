@@ -19,4 +19,8 @@ class BslBookingRequest < ApplicationRecord
   def process!
     touch(:processed_at) unless processed_at? # rubocop:disable SkipsModelValidations
   end
+
+  def supported?
+    support == 'yes'
+  end
 end
