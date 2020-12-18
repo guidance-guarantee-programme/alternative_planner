@@ -11,5 +11,13 @@ FactoryBot.define do
     additional_info { '' }
     where_you_heard { 1 } # employer
     gdpr_consent { 'no' }
+
+    trait :nominated_support do
+      support { 'yes' }
+      support_name { 'Bob Michael' }
+      support_relationship { 'Wife' }
+      support_phone { '0208 252 4729' }
+      support_email { 'bob@example.com' }
+    end
   end
 end

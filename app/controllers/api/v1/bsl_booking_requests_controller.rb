@@ -31,7 +31,12 @@ module Api
           :accessibility_needs,
           :additional_info,
           :where_you_heard,
-          :gdpr_consent
+          :gdpr_consent,
+          :support,
+          :support_name,
+          :support_relationship,
+          :support_email,
+          :support_phone
         )
       end
     end
