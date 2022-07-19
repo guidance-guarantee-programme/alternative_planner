@@ -111,7 +111,7 @@ GEM
       faraday (~> 1.0)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
-    ffi (1.13.1)
+    ffi (1.15.4)
     foreman (0.87.2)
     gds-sso (15.0.1)
       multi_json (~> 1.0)
