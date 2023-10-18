@@ -11,11 +11,11 @@ RSpec.describe 'GET /api/v1/locations.json' do
 
     expect(JSON.parse(response.body)).to contain_exactly(
       {
-        'id'   => an_instance_of(Integer),
+        'id' => an_instance_of(Integer),
         'name' => 'A Location'
       },
       {
-        'id'   => an_instance_of(Integer),
+        'id' => an_instance_of(Integer),
         'name' => 'Z Location'
       }
     )

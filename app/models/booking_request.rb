@@ -18,7 +18,7 @@ class BookingRequest < ApplicationRecord
   end
 
   def process!
-    touch(:processed_at) unless processed_at? # rubocop:disable SkipsModelValidations
+    touch(:processed_at) unless processed_at? # rubocop:disable Rails/SkipsModelValidations
   end
 
   def booking_type

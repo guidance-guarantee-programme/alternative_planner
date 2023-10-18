@@ -37,7 +37,7 @@ RSpec.feature 'BSL guider views a booking request' do
     @page.load(id: @booking.id)
   end
 
-  def then_the_booking_is_displayed # rubocop:disable MethodLength, AbcSize
+  def then_the_booking_is_displayed # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     expect(@page).to be_displayed
 
     expect(@page.full_name).to have_value('George Smith')
