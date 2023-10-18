@@ -20,7 +20,7 @@ RSpec.feature 'Guider views a booking request' do
     @page.load(id: @booking.id)
   end
 
-  def then_the_booking_is_displayed # rubocop:disable MethodLength, AbcSize
+  def then_the_booking_is_displayed # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     expect(@page).to be_displayed
     expect(@page.booking_type).to have_text('Face-to-face')
     expect(@page.location_name.text).to match(/Location \d+/)

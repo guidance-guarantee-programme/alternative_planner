@@ -18,7 +18,7 @@ gem 'kaminari'
 gem 'pg'
 gem 'plek'
 gem 'puma'
-gem 'rails', '~> 6.0'
+gem 'rails', '~> 6.1'
 gem 'sassc-rails'
 gem 'sidekiq'
 gem 'uglifier', '>= 1.3.0'
@@ -32,7 +32,8 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'rubocop', '0.58.2', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :test do

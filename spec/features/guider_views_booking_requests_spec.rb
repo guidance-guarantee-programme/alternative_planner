@@ -26,7 +26,7 @@ RSpec.feature 'Guider views booking requests' do
     visit root_path
   end
 
-  def then_the_booking_requests_are_displayed # rubocop:disable AbcSize
+  def then_the_booking_requests_are_displayed # rubocop:disable Metrics/AbcSize
     @page = Pages::BookingRequests.new
     expect(@page).to be_displayed
     expect(@page).to have_booking_requests(count: 10) # paginated

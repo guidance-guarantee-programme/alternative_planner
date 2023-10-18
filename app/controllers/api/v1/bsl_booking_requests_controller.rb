@@ -1,8 +1,9 @@
 module Api
   module V1
-    class BslBookingRequestsController < ActionController::Base
+    class BslBookingRequestsController < ApplicationController
       wrap_parameters false
 
+      skip_before_action :authenticate_user!
       skip_before_action :verify_authenticity_token
 
       def create
@@ -19,7 +20,7 @@ module Api
 
       private
 
-      def booking_request_params # rubocop:disable MethodLength
+      def booking_request_params # rubocop:disable Metrics/MethodLength
         params.permit(
           :first_name,
           :last_name,

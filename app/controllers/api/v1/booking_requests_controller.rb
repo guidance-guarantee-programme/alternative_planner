@@ -1,8 +1,9 @@
 module Api
   module V1
-    class BookingRequestsController < ActionController::Base
+    class BookingRequestsController < ApplicationController
       wrap_parameters false
 
+      skip_before_action :authenticate_user!
       skip_before_action :verify_authenticity_token
 
       def create
@@ -24,7 +25,7 @@ module Api
         CustomerMailer.confirmation(booking_request).deliver_later
       end
 
-      def booking_request_params # rubocop:disable MethodLength
+      def booking_request_params # rubocop:disable Metrics/MethodLength
         params.permit(
           :location_id,
           :first_name,

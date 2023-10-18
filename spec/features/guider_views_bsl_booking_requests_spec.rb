@@ -25,7 +25,7 @@ RSpec.feature 'Guider views BSL booking requests' do
     visit bsl_booking_requests_path
   end
 
-  def then_the_booking_requests_are_displayed # rubocop:disable AbcSize
+  def then_the_booking_requests_are_displayed # rubocop:disable Metrics/AbcSize
     @page = Pages::BslBookingRequests.new
     expect(@page).to be_displayed
     expect(@page).to have_booking_requests(count: 10) # paginated

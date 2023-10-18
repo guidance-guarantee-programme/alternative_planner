@@ -1,4 +1,4 @@
-# rubocop:disable UnknownEnv
+# rubocop:disable Rails/UnknownEnv
 GovukAdminTemplate.environment_style = Rails.env.staging? ? 'preview' : ENV['RAILS_ENV']
 
 GovukAdminTemplate.configure do |c|
@@ -6,4 +6,4 @@ GovukAdminTemplate.configure do |c|
   c.show_flash = true
   c.show_signout = true
 end
-# rubocop:enable UnknownEnv
+# rubocop:enable Rails/UnknownEnv
