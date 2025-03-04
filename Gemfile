@@ -7,6 +7,7 @@ gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-kaminari-views'
 gem 'bugsnag'
+gem 'concurrent-ruby', '1.3.4'
 gem 'email_validator'
 gem 'faraday'
 gem 'faraday-conductivity'
