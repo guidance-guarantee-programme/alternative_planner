@@ -119,6 +119,11 @@
           </div>
 
           <div class="form-group">
+            <%= f.label :adjustments %>
+            <%= f.text_area :adjustments, class: 'form-control t-adjustments', rows: 5, maxlength: 500, readonly: true %>
+          </div>
+
+          <div class="form-group">
             <p><b>Defined contribution pot confirmed?</b></p>
             <%= f.label :defined_contribution_pot_confirmed, value: true, class: 'radio-inline' do %>
               <%= f.radio_button :defined_contribution_pot_confirmed, true, class: 't-defined-contribution-pot-confirmed-yes' %>
