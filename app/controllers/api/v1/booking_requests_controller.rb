@@ -36,6 +36,7 @@ module Api
           :date_of_birth,
           :defined_contribution_pot_confirmed,
           :accessibility_needs,
+          :adjustments,
           :additional_info,
           :where_you_heard,
           :gdpr_consent

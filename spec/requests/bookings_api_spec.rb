@@ -10,7 +10,8 @@ RSpec.describe 'POST /api/v1/booking_requests.json' do
       'memorable_word' => 'starfishes',
       'date_of_birth' => '1960-01-01',
       'defined_contribution_pot_confirmed' => true,
-      'accessibility_needs' => false,
+      'accessibility_needs' => true,
+      'adjustments' => 'I need help accessing the location.',
       'additional_info' => 'Not before 3PM if possible.',
       'where_you_heard' => '1', # An employer
       'gdpr_consent' => 'yes'
@@ -55,7 +56,8 @@ RSpec.describe 'POST /api/v1/booking_requests.json' do
       memorable_word: 'starfishes',
       date_of_birth: '1960-01-01'.to_date,
       defined_contribution_pot_confirmed: true,
-      accessibility_needs: false,
+      accessibility_needs: true,
+      adjustments: 'I need help accessing the location.',
       additional_info: 'Not before 3PM if possible.',
       where_you_heard: 1,
       gdpr_consent: 'yes'

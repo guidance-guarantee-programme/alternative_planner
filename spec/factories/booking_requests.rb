@@ -7,7 +7,8 @@ FactoryBot.define do
     memorable_word { 'spacetravel' }
     date_of_birth { '1960-01-01' }
     defined_contribution_pot_confirmed { true }
-    accessibility_needs { false }
+    accessibility_needs { true }
+    adjustments { 'These are the adjustments' }
     additional_info { '' }
     where_you_heard { 1 } # employer
     gdpr_consent { 'yes' }

@@ -33,7 +33,8 @@ RSpec.feature 'Guider views a booking request' do
     expect(@page.month_of_birth).to have_value('1')
     expect(@page.day_of_birth).to have_value('1')
     expect(@page.defined_contribution_pot_confirmed_yes).to be_checked
-    expect(@page.accessibility_needs).not_to be_checked
+    expect(@page.accessibility_needs).to be_checked
+    expect(@page.adjustments).to have_text('These are the adjustments')
     expect(@page.additional_info).to have_value('')
     expect(@page.gdpr_consent).to have_text('Yes')
   end
