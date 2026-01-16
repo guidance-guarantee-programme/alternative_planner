@@ -24,4 +24,15 @@ class BookingRequest < ApplicationRecord
   def booking_type
     'Welsh Language'
   end
+
+  def self.redact_for_gdpr
+    where('created_at < ?', 2.years.ago).update_all( # rubocop:disable Rails/SkipsModelValidations
+      first_name: 'redacted',
+      last_name: 'redacted',
+      email: 'redacted@example.com',
+      phone: 'redacted',
+      memorable_word: 'redacted',
+      additional_info: 'redacted'
+    )
+  end
 end
