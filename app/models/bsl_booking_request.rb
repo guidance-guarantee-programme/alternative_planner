@@ -23,4 +23,20 @@ class BslBookingRequest < ApplicationRecord
   def supported?
     support == 'yes'
   end
+
+  def self.redact_for_gdpr # rubocop:disable Metrics/MethodLength
+    where('created_at < ?', 2.years.ago).update_all( # rubocop:disable Rails/SkipsModelValidations
+      first_name: 'redacted',
+      last_name: 'redacted',
+      email: 'redacted@example.com',
+      phone: 'redacted',
+      memorable_word: 'redacted',
+      additional_info: 'redacted',
+      date_of_birth: '1950-01-01',
+      support_name: 'redacted',
+      support_relationship: 'redacted',
+      support_phone: 'redacted',
+      support_email: 'redacted'
+    )
+  end
 end
