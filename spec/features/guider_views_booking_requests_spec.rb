@@ -18,8 +18,8 @@ RSpec.feature 'Guider views booking requests' do
   end
 
   def and_several_booking_requests_exist
-    create_list(:booking_request, 5, :face_to_face)
     create_list(:booking_request, 6) # telephone bookings
+    create_list(:booking_request, 5, :face_to_face)
   end
 
   def when_the_guider_views_the_booking_requests
