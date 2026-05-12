@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
       resources :booking_requests, only: :create
       resources :bsl_booking_requests, only: :create
+      resources :face_to_face_bookings, only: :create
     end
   end
 
