@@ -22,6 +22,11 @@
     <%= link_to 'BSL booking requests', bsl_booking_requests_path %>
   </li>
   <% end %>
+  <% if current_user.face_to_face? %>
+  <li>
+    <%= link_to 'Face-to-face bookings', face_to_face_bookings_path %>
+  </li>
+  <% end %>
 <% end %>
 
 <%= render template: 'layouts/govuk_admin_template' %>
