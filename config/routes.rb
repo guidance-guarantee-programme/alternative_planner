@@ -24,5 +24,10 @@ Rails.application.routes.draw do
     resources :notes, only: :create
   end
 
+  resources :face_to_face_bookings, only: %i[index show] do
+    resource :process, only: :create
+    resources :notes, only: :create
+  end
+
   root 'home#index'
 end
