@@ -15,6 +15,8 @@ module Pages
     element :defined_contribution_pot_confirmed_yes, '.t-defined-contribution-pot-confirmed-yes'
     element :defined_contribution_pot_confirmed_dont_know, '.t-defined-contribution-pot-confirmed-dont-know'
     element :gdpr_consent, '.t-gdpr-consent'
+    element :postcode, '.t-postcode'
+    element :referrer, '.t-referrer'
 
     element :processed, '.t-processed'
     element :process, '.t-process'

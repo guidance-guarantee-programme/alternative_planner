@@ -18,7 +18,9 @@ RSpec.describe 'POST /api/v1/face_to_face_bookings.json' do
       'support_name' => 'Dave Jones',
       'support_relationship' => 'Husband',
       'support_email' => 'dave@example.com',
-      'support_phone' => '07717 383 488'
+      'support_phone' => '07717 383 488',
+      'postcode' => 'RG1 1AL',
+      'referrer' => 'Pension Co.'
     }
   end
 

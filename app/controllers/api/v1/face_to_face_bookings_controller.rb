@@ -38,7 +38,9 @@ module Api
           :support_name,
           :support_relationship,
           :support_email,
-          :support_phone
+          :support_phone,
+          :referrer,
+          :postcode
         )
       end
     end

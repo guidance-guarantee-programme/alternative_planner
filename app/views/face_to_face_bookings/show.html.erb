@@ -84,6 +84,10 @@
             <%= f.text_field :phone, class: 'form-control t-phone', readonly: true %>
           </div>
           <div class="form-group">
+            <%= f.label :postcode %>
+            <%= f.text_field :postcode, class: 'form-control t-postcode', readonly: true %>
+          </div>
+          <div class="form-group">
             <%= f.label :memorable_word %>
             <%= f.text_field :memorable_word, class: 'form-control t-memorable-word', readonly: true %>
           </div>
@@ -91,6 +95,10 @@
         </div>
         <div class="col-md-6">
           <h2 class="h3">Appointment details</h2>
+          <div class="form-group">
+            <%= f.label :referrer %>
+            <%= f.text_field :referrer, class: 'form-control t-referrer', readonly: true %>
+          </div>
 
           <div class="form-group">
             <%= f.label :additional_info %>

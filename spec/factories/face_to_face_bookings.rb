@@ -12,6 +12,8 @@ FactoryBot.define do
     additional_info { 'Notes' }
     where_you_heard { 1 } # employer
     gdpr_consent { 'no' }
+    postcode { 'RG1 1AL' }
+    referrer { 'CITA' }
 
     trait :nominated_support do
       support { 'yes' }

@@ -5,6 +5,8 @@ class FaceToFaceBooking < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true, email: true
   validates :phone, presence: true
+  validates :postcode, presence: true
+  validates :referrer, presence: true
   validates :memorable_word, presence: true
   validates :accessibility_requirements, inclusion: { in: [true, false] }
   validates :defined_contribution_pot_confirmed, inclusion: { in: [true, false] }

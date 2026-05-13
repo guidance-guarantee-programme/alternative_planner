@@ -52,6 +52,8 @@ RSpec.feature 'Face-to-face guider views a booking request' do
     expect(@page.adjustments).to have_value('These are the adjustments')
     expect(@page.additional_info).to have_value('Notes')
     expect(@page.gdpr_consent).to have_text('No')
+    expect(@page.postcode).to have_value('RG1 1AL')
+    expect(@page.referrer).to have_value('CITA')
     expect(@page).to have_no_support_name
   end
 
