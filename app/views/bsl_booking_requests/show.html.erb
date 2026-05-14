@@ -69,11 +69,11 @@
     <div class="well">
       <div class="row">
         <div class="col-md-6">
-          <%= form_for @booking_request do |f| %>
+          <%= form_with model: @booking_request do |f| %>
           <h2 class="h3">Customer details</h2>
           <div class="form-group">
             <%= f.label :full_name %>
-            <%= f.text_field :full_name, class: 'form-control t-full-name', readonly: true %>
+            <%= f.text_field :full_name, value: @booking_request.full_name, class: 'form-control t-full-name', readonly: true %>
           </div>
           <div class="form-group">
             <%= f.label :email %>
