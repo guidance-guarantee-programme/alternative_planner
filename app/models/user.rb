@@ -4,7 +4,7 @@ class User < ApplicationRecord
   WELSH_PERMISSION = 'welsh'.freeze
   BSL_PERMISSION   = 'bsl'.freeze
 
-  serialize :permissions, Array
+  serialize :permissions, class: Array
 
   scope :enabled, -> { where(disabled: false) }
 

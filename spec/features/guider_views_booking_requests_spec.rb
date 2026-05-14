@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'Guider views booking requests' do
-  scenario 'When unauthenticated, redirect to login' do
+  scenario 'When unauthenticated, 404' do
     with_real_sso do
-      expect { when_the_guider_views_the_booking_requests }.to raise_error(
-        ActionController::RoutingError, 'No route matches [GET] "/oauth/authorize"'
-      )
+      when_the_guider_views_the_booking_requests
+      then_they_see_a_missing_status
     end
   end
 
@@ -36,5 +35,9 @@ RSpec.feature 'Guider views booking requests' do
     expect(@first.full_name).to have_text('Daisy Smith')
     expect(@first.booking_type).to have_text('Face-to-face')
     expect(@first.processed).to have_text('No')
+  end
+
+  def then_they_see_a_missing_status
+    expect(page.status_code).to eq(404)
   end
 end
