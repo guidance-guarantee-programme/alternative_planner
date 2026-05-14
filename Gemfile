@@ -21,7 +21,7 @@ gem 'plek'
 gem 'puma'
 gem 'rails', '~> 7.0'
 gem 'sassc-rails'
-gem 'sidekiq'
+gem 'sidekiq', '7.3.10' # resolve issue with connection pool
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
