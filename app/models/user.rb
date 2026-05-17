@@ -9,11 +9,11 @@ class User < ApplicationRecord
   scope :enabled, -> { where(disabled: false) }
 
   def welsh?
-    permissions.include?(WELSH_PERMISSION)
+    permissions&.include?(WELSH_PERMISSION)
   end
 
   def bsl?
-    permissions.include?(BSL_PERMISSION)
+    permissions&.include?(BSL_PERMISSION)
   end
 
   def self.welsh_guiders
