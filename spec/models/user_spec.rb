@@ -7,4 +7,26 @@ RSpec.describe User, type: :model do
   it 'is valid with valid attributes' do
     expect(build(:user)).to be_valid
   end
+
+  context 'when the permissions are nil' do
+    subject { build(:user, permissions: nil) }
+
+    it 'responds correctly for `#welsh?`' do
+      expect(subject).to_not be_welsh
+    end
+
+    it 'responds correctly for `#bsl?`' do
+      expect(subject).to_not be_bsl
+    end
+  end
+
+  context 'when the permissions are assigned' do
+    it 'responds correctly for `#welsh?`' do
+      expect(build(:guider)).to be_welsh
+    end
+
+    it 'responds correctly for `#bsl?`' do
+      expect(build(:bsl_guider)).to be_bsl
+    end
+  end
 end
