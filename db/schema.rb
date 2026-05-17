@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_03_05_192733) do
+ActiveRecord::Schema.define(version: 2026_05_13_144411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,31 @@ ActiveRecord::Schema.define(version: 2025_03_05_192733) do
     t.string "support_relationship", default: "", null: false
     t.string "support_email", default: "", null: false
     t.string "support_phone", default: "", null: false
+  end
+
+  create_table "face_to_face_bookings", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "phone", null: false
+    t.string "memorable_word", null: false
+    t.string "gdpr_consent", default: "", null: false
+    t.string "additional_info", default: "", null: false
+    t.date "date_of_birth", null: false
+    t.boolean "defined_contribution_pot_confirmed", null: false
+    t.boolean "accessibility_requirements", null: false
+    t.string "adjustments", default: "", null: false
+    t.integer "where_you_heard", null: false
+    t.string "support", default: "no", null: false
+    t.string "support_name", default: "", null: false
+    t.string "support_relationship", default: "", null: false
+    t.string "support_email", default: "", null: false
+    t.string "support_phone", default: "", null: false
+    t.datetime "processed_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "postcode", default: "", null: false
+    t.string "referrer", default: "", null: false
   end
 
   create_table "locations", force: :cascade do |t|

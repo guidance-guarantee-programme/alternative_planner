@@ -10,6 +10,8 @@ class NotesController < ApplicationController
   def booking
     if params[:booking_request_id]
       BookingRequest.find(params[:booking_request_id])
+    elsif params[:face_to_face_booking_id]
+      FaceToFaceBooking.find(params[:face_to_face_booking_id])
     else
       BslBookingRequest.find(params[:bsl_booking_request_id])
     end
