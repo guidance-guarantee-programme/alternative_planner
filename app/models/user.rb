@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def face_to_face?
-    permissions.include?(FACE_TO_FACE_PERMISSION)
+    permissions&.include?(FACE_TO_FACE_PERMISSION)
   end
 
   def self.welsh_guiders
