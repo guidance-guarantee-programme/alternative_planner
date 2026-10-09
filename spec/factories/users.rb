@@ -8,5 +8,9 @@ FactoryBot.define do
     factory :bsl_guider do
       permissions { %w[signin bsl] }
     end
+
+    factory :face_to_face_guider do
+      permissions { %w[signin f2f] }
+    end
   end
 end

@@ -18,6 +18,10 @@ RSpec.describe User, type: :model do
     it 'responds correctly for `#bsl?`' do
       expect(subject).to_not be_bsl
     end
+
+    it 'responds correctly for `#face_to_face?`' do
+      expect(subject).to_not be_face_to_face
+    end
   end
 
   context 'when the permissions are assigned' do
@@ -27,6 +31,10 @@ RSpec.describe User, type: :model do
 
     it 'responds correctly for `#bsl?`' do
       expect(build(:bsl_guider)).to be_bsl
+    end
+
+    it 'responds correctly for `#face_to_face?`' do
+      expect(build(:face_to_face_guider)).to be_face_to_face
     end
   end
 end

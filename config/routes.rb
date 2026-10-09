@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
       resources :booking_requests, only: :create
       resources :bsl_booking_requests, only: :create
+      resources :face_to_face_bookings, only: :create
     end
   end
 
@@ -19,6 +20,11 @@ Rails.application.routes.draw do
   end
 
   resources :bsl_booking_requests, only: %i[index show] do
+    resource :process, only: :create
+    resources :notes, only: :create
+  end
+
+  resources :face_to_face_bookings, only: %i[index show] do
     resource :process, only: :create
     resources :notes, only: :create
   end
