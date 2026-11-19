@@ -16,6 +16,7 @@ gem 'foreman'
 gem 'gds-sso'
 gem 'govuk_admin_template'
 gem 'kaminari'
+gem 'observer'
 gem 'pg'
 gem 'plek'
 gem 'puma'
@@ -42,6 +43,5 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'site_prism'
-  gem 'webdrivers', require: false
   gem 'webmock'
 end
